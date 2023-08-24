@@ -1,0 +1,35 @@
+
+create table usuarios (
+  id serial primary key, 
+  nome varchar not null,
+  email text not null unique,
+  senha text not null,
+  cpf text,
+  telefone text
+);
+
+create table clientes (
+  id serial primary key,
+    nome varchar not null,
+  email text not null unique,
+  cpf text not null unique,
+  telefone text not null, 
+  cep varchar,
+  logradouro text, 
+  complemento text,
+  bairro text, 
+  cidade varchar,
+  estado varchar,
+
+  );
+
+  
+create table cobrancas (
+  id serial primary key,
+  cliente varchar not null,
+descricao text not null, 
+ vencimento date not null,
+ status varchar not null,
+ valor INTEGER not null,
+ id_cliente serial references clientes(id)
+)
